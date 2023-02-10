@@ -1,9 +1,15 @@
 import React from 'react';
 
-const Story = () => {
+const Story = ({ from, img }) => {
     return (
-        <div>
-            
+        
+        <div className="story">
+            <div className="imagem">
+                <img src={img} alt={from}/>
+            </div>
+            <div className="usuario">
+                {from}
+            </div>
         </div>
     );
 };
