@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Post = ({ from, content, likedBy, likes }) => {
+const Post = ({ from, content, likedBy, likes, isVideo }) => {
     return (
         <div className="post">
             <div className="topo">
@@ -14,7 +14,7 @@ const Post = ({ from, content, likedBy, likes }) => {
             </div>
 
             <div className="conteudo">
-                <img src={`assets/img/${content}.svg`} alt={content}/>
+                {isVideo ? <video src={`./assets/video/${content}.ogv`} controls></video> : <img src={`./assets/img/${content}.svg`} alt={content}/>}
             </div>
 
             <div className="fundo">

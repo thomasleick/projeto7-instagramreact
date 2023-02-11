@@ -176,7 +176,7 @@ main {
   cursor: pointer;
 }
 
-.post .conteudo img {
+.post .conteudo img, .post .conteudo video {
   width: 100%;
 }
 
