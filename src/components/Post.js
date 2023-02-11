@@ -18,7 +18,7 @@ const Post = ({ from, content, likedBy, likes, isVideo }) => {
     }
 
     return (
-        <div className="post">
+        <div className="post" data-test="post">
             <div className="topo">
                 <div className="usuario">
                     <img src={`assets/img/${from}.svg`} alt={from}/>
@@ -31,8 +31,8 @@ const Post = ({ from, content, likedBy, likes, isVideo }) => {
 
             <div className="conteudo">
                 {isVideo ? 
-                    <video src={`./assets/video/${content}.ogv`} onDoubleClick={ liked ? "" : () => toogleLikes(true)} controls/> : 
-                    <img src={`./assets/img/${content}.svg`} alt={content} onDoubleClick={ liked ? "" : () => toogleLikes(true) } />
+                    <video src={`./assets/video/${content}.ogv`} onDoubleClick={ liked ? "" : () => toogleLikes(true)} controls data-test="post-image" /> : 
+                    <img src={`./assets/img/${content}.svg`} alt={content} onDoubleClick={ liked ? "" : () => toogleLikes(true) } data-test="post-image" />
                 }
             </div>
 
@@ -40,18 +40,18 @@ const Post = ({ from, content, likedBy, likes, isVideo }) => {
                 <div className="acoes">
                     <div>
                         <ion-icon name={ liked ? "heart" : "heart-outline" } onClick={ liked ? () => toogleLikes(false) : () => toogleLikes(true) } 
-                            style={ liked ? {color: "red"} : {color: "black"} }></ion-icon>
+                            style={ liked ? {color: "red"} : {color: "black"} } data-test="like-post"></ion-icon>
                         <ion-icon name="chatbubble-outline"></ion-icon>
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
                     <div>
-                        <ion-icon name={ saved ? "bookmark" : "bookmark-outline" } onClick={ saved ? () => setSaved(false) : () => setSaved(true)}></ion-icon>
+                        <ion-icon name={ saved ? "bookmark" : "bookmark-outline" } onClick={ saved ? () => setSaved(false) : () => setSaved(true)} data-test="save-post"></ion-icon>
                     </div>
                 </div>
 
                 <div className="curtidas">
                     <img src={`assets/img/${likedBy}.svg`} alt={likedBy}/>
-                    <div className="texto">
+                    <div className="texto" data-test="likes-number">
                         Curtido por <strong>{likedBy}</strong> e <strong>outras {Intl.NumberFormat('pt-BR').format(tLikes)} pessoas</strong>
                     </div>
                 </div>
