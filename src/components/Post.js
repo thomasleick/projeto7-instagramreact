@@ -17,6 +17,12 @@ const Post = ({ from, content, likedBy, likes, isVideo }) => {
         setLiked(bool);
     }
 
+    const doubleClicked = () => {
+        if (liked)
+            return 0;
+        toogleLikes(true);
+    }
+
     return (
         <div className="post" data-test="post">
             <div className="topo">
@@ -31,21 +37,21 @@ const Post = ({ from, content, likedBy, likes, isVideo }) => {
 
             <div className="conteudo">
                 {isVideo ? 
-                    <video src={`./assets/video/${content}.ogv`} onDoubleClick={ liked ? "" : () => toogleLikes(true)} controls data-test="post-image" /> : 
-                    <img src={`./assets/img/${content}.svg`} alt={content} onDoubleClick={ liked ? "" : () => toogleLikes(true) } data-test="post-image" />
+                    <video src={`./assets/video/${content}.ogv`} onDoubleClick={doubleClicked} controls data-test="post-image" /> : 
+                    <img src={`./assets/img/${content}.svg`} alt={content} onDoubleClick={doubleClicked} data-test="post-image" />
                 }
             </div>
 
             <div className="fundo">
                 <div className="acoes">
                     <div>
-                        <ion-icon name={ liked ? "heart" : "heart-outline" } onClick={ liked ? () => toogleLikes(false) : () => toogleLikes(true) } 
+                        <ion-icon name={ liked ? "heart" : "heart-outline" } onClick={ () => toogleLikes(!liked) } 
                             style={ liked ? {color: "red"} : {color: "black"} } data-test="like-post"></ion-icon>
                         <ion-icon name="chatbubble-outline"></ion-icon>
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
                     <div>
-                        <ion-icon name={ saved ? "bookmark" : "bookmark-outline" } onClick={ saved ? () => setSaved(false) : () => setSaved(true)} data-test="save-post"></ion-icon>
+                        <ion-icon name={ saved ? "bookmark" : "bookmark-outline" } onClick={ () => setSaved(!saved) } data-test="save-post"></ion-icon>
                     </div>
                 </div>
 

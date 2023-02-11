@@ -16,7 +16,7 @@ const User = () => {
         const oldProp = img;
         const newProp = prompt("Qual o link da nova foto do perfil?");
         newProp?.length > 0 ? setImg(newProp) : setImg(oldProp)
-        return 0;
+        return 1;
     }
 
     return (
