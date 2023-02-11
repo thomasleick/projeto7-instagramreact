@@ -16,11 +16,11 @@ const Stories = () => {
     return (
         <div className="stories">
             {stories.map( story => <Story key={story.from} from={story.from} img={story.img}/>)}
-
-                    <div className="setinha">
-                        <ion-icon name="chevron-forward-circle"></ion-icon>
-                    </div>
-                    </div>
+            
+            <div className="setinha">
+                <ion-icon name="chevron-forward-circle"></ion-icon>
+            </div>
+        </div>
     );
 };
 

@@ -2,7 +2,7 @@ import React from 'react';
 
 const NavBar = () => {
     return (
-        <nav>
+        <header>
             <div className="container">
                 <div className="logo">
                     <ion-icon name="logo-instagram"></ion-icon>
@@ -25,7 +25,7 @@ const NavBar = () => {
                     <ion-icon name="paper-plane-outline"></ion-icon>
                 </div>
             </div>
-        </nav>
+        </header>
     );
 };
 

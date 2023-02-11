@@ -11,7 +11,7 @@ body {
   font-size: 14px;
 }
 
-nav {
+header {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -25,11 +25,11 @@ nav {
   z-index: 2;
 }
 
-nav ion-icon, nav img {
+header ion-icon, header img {
   cursor: pointer;
 }
 
-nav .container {
+header .container {
   width: 100%;
   max-width: 935px;
   display: flex;
@@ -38,25 +38,25 @@ nav .container {
   height: 100%;
 }
 
-nav .container > * {
+header .container > * {
   display: flex;
   align-items: center;
   height: 100%;
 }
 
-nav .logo img {
+header .logo img {
   position: relative;
   top: 3px;
 }
 
-nav .logo .separador {
+header .logo .separador {
   width: 1px;
   height: 22px;
   background-color: #DBDBDB;
   margin: 0 10px;
 }
 
-nav .pesquisa input {
+header .pesquisa input {
   width: 215px;
   height: 28px;
   border-radius: 3px;
@@ -66,11 +66,11 @@ nav .pesquisa input {
   text-align: center;
 }
 
-nav .icones ion-icon {
+header .icones ion-icon {
   margin: 0 5px;
 }
 
-nav .icones-mobile {
+header .icones-mobile {
   display: none;
 }
 
