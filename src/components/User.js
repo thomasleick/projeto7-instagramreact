@@ -21,11 +21,11 @@ const User = () => {
 
     return (
         <div className="usuario">
-            <img src={img} alt="imagem de perfil" onClick={() => changeState("img")}/>
+            <img src={img} alt="imagem de perfil" onClick={() => changeState("img")} data-test="profile-image"/>
             <div className="texto">
                 <span>
-                    <strong>{user}</strong>
-                    <ion-icon name="pencil" onClick={() => changeState("nome")} />
+                    <strong data-test="name">{user}</strong>
+                    <ion-icon name="pencil" onClick={() => changeState("nome")} data-test="edit-name"/>
                 </span>
             </div>
         </div>
