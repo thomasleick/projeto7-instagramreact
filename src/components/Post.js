@@ -1,6 +1,22 @@
 import React from 'react';
+import { useState } from 'react';
 
 const Post = ({ from, content, likedBy, likes, isVideo }) => {
+
+    const [saved, setSaved] = useState(false);
+    const [liked, setLiked] = useState(false);
+    const [tLikes, setTLikes] = useState(parseInt(likes));
+
+    const toogleLikes = bool => {
+        let newValue = tLikes;
+        if (bool)
+            ++newValue
+        else
+            --newValue
+        setTLikes(newValue);
+        setLiked(bool);
+    }
+
     return (
         <div className="post">
             <div className="topo">
@@ -14,25 +30,29 @@ const Post = ({ from, content, likedBy, likes, isVideo }) => {
             </div>
 
             <div className="conteudo">
-                {isVideo ? <video src={`./assets/video/${content}.ogv`} controls></video> : <img src={`./assets/img/${content}.svg`} alt={content}/>}
+                {isVideo ? 
+                    <video src={`./assets/video/${content}.ogv`} onDoubleClick={ liked ? "" : () => toogleLikes(true)} controls/> : 
+                    <img src={`./assets/img/${content}.svg`} alt={content} onDoubleClick={ liked ? "" : () => toogleLikes(true) } />
+                }
             </div>
 
             <div className="fundo">
                 <div className="acoes">
                     <div>
-                        <ion-icon name="heart-outline"></ion-icon>
+                        <ion-icon name={ liked ? "heart" : "heart-outline" } onClick={ liked ? () => toogleLikes(false) : () => toogleLikes(true) } 
+                            style={ liked ? {color: "red"} : {color: "black"} }></ion-icon>
                         <ion-icon name="chatbubble-outline"></ion-icon>
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
                     <div>
-                        <ion-icon name="bookmark-outline"></ion-icon>
+                        <ion-icon name={ saved ? "bookmark" : "bookmark-outline" } onClick={ saved ? () => setSaved(false) : () => setSaved(true)}></ion-icon>
                     </div>
                 </div>
 
                 <div className="curtidas">
                     <img src={`assets/img/${likedBy}.svg`} alt={likedBy}/>
                     <div className="texto">
-                        Curtido por <strong>{likedBy}</strong> e <strong>outras {likes} pessoas</strong>
+                        Curtido por <strong>{likedBy}</strong> e <strong>outras {Intl.NumberFormat('pt-BR').format(tLikes)} pessoas</strong>
                     </div>
                 </div>
             </div>
