@@ -40,7 +40,6 @@ const Post = ({ from, content, likedBy, likes, isVideo, isSaved, isLiked }) => {
                     <video className="postContent" src={`./assets/video/${content}.ogv`} onDoubleClick={doubleClicked} controls data-test="post-image" /> : 
                     <img className="postContent" src={`./assets/img/${content}.svg`} alt={content} onDoubleClick={doubleClicked} data-test="post-image" />
                 }
-                <img className="heartClick" src="https://assets.churchofjesuschrist.org/70/52/7052231aa159fa6bde323723591fa1402240a0941061391/heart.jpeg" />
             </div>
 
             <div className="fundo">
