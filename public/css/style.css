@@ -176,7 +176,7 @@ main {
   cursor: pointer;
 }
 
-.post .conteudo img, .post .conteudo video {
+.postContent {
   width: 100%;
 }
 
@@ -303,4 +303,32 @@ ion-icon {
   margin-left: 5px;
   padding-top: 5px;
   color: black;
+}
+
+.heartClick {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 200px;
+  width: 200px;
+
+  color: white;
+  background-color: black;
+  animation-name: heartLiked;
+  animation-duration: 0.3;
+}
+
+.conteudo {
+  position: relative;
+}
+
+
+@keyframes heartLiked {
+  0% {
+    scale: 0.2;
+  }
+
+  100% {
+    scale: 1;
+  }
 }

@@ -1,10 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
 
-const Post = ({ from, content, likedBy, likes, isVideo }) => {
+const Post = ({ from, content, likedBy, likes, isVideo, isSaved, isLiked }) => {
 
-    const [saved, setSaved] = useState(false);
-    const [liked, setLiked] = useState(false);
+    const [saved, setSaved] = useState(isSaved === undefined ? false : isSaved);
+    const [liked, setLiked] = useState(isLiked === undefined ? false : isLiked);
     const [tLikes, setTLikes] = useState(parseInt(likes));
 
     const toogleLikes = bool => {
@@ -37,9 +37,10 @@ const Post = ({ from, content, likedBy, likes, isVideo }) => {
 
             <div className="conteudo">
                 {isVideo ? 
-                    <video src={`./assets/video/${content}.ogv`} onDoubleClick={doubleClicked} controls data-test="post-image" /> : 
-                    <img src={`./assets/img/${content}.svg`} alt={content} onDoubleClick={doubleClicked} data-test="post-image" />
+                    <video className="postContent" src={`./assets/video/${content}.ogv`} onDoubleClick={doubleClicked} controls data-test="post-image" /> : 
+                    <img className="postContent" src={`./assets/img/${content}.svg`} alt={content} onDoubleClick={doubleClicked} data-test="post-image" />
                 }
+                <img className="heartClick" src="https://assets.churchofjesuschrist.org/70/52/7052231aa159fa6bde323723591fa1402240a0941061391/heart.jpeg" />
             </div>
 
             <div className="fundo">
