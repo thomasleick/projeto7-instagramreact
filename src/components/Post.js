@@ -17,7 +17,8 @@ const Post = ({ from, content, likedBy, likes, isVideo, isSaved, isLiked }) => {
         setLiked(bool);
     }
 
-    const doubleClicked = () => {
+    const doubleClicked = (e) => {
+        e.preventDefault()
         if (liked)
             return 0;
         toogleLikes(true);
